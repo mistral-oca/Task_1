@@ -18,10 +18,23 @@ class TestBun:
             ("", 10.0),
         ]
     )
-    def test_bun_initialization(self, name, price):
+    def test_bun_name_initialization(self, name, price):
         bun = Bun(name, price)
 
         assert bun.name == name
+
+    @pytest.mark.parametrize(
+        "name, price",
+        [
+            ("black bun", 100.0),
+            ("white bun", 50.5),
+            ("sesame bun", 0),
+            ("", 10.0),
+        ]
+    )
+    def test_bun_price_initialization(self, name, price):
+        bun = Bun(name, price)
+
         assert bun.price == price
 
     @pytest.mark.parametrize(
