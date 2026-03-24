@@ -13,11 +13,31 @@ class TestIngredient:
         ("SAUCE", "", 0),
         ("FILLING", "bacon", 99.9),
     ])
-    def test_ingredient_initialization(self, ingredient_type, name, price):
+    def test_ingredient_type_initialization(self, ingredient_type, name, price):
         ingredient = Ingredient(ingredient_type, name, price)
 
         assert ingredient.type == ingredient_type
+
+    @pytest.mark.parametrize("ingredient_type, name, price", [
+        ("SAUCE", "ketchup", 50),
+        ("FILLING", "cheese", 100),
+        ("SAUCE", "", 0),
+        ("FILLING", "bacon", 99.9),
+    ])
+    def test_ingredient_name_initialization(self, ingredient_type, name, price):
+        ingredient = Ingredient(ingredient_type, name, price)
+
         assert ingredient.name == name
+
+    @pytest.mark.parametrize("ingredient_type, name, price", [
+        ("SAUCE", "ketchup", 50),
+        ("FILLING", "cheese", 100),
+        ("SAUCE", "", 0),
+        ("FILLING", "bacon", 99.9),
+    ])
+    def test_ingredient_price_initialization(self, ingredient_type, name, price):
+        ingredient = Ingredient(ingredient_type, name, price)
+
         assert ingredient.price == price
 
 
